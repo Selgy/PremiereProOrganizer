@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ExtensionManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ExtensionBundleId="com.OrganizeFilesInProject" ExtensionBundleName="OrganizeFilesInProject" ExtensionBundleVersion="1.0.0" Version="11.0">
+  <ExtensionList>
+    <Extension Id="com.OrganizeFilesInProject.panel" Version="1.0.0" />
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <Host Name="PPRO" Version="[0.0,99.9]" />
+    </HostList>
+    <LocaleList>
+      <Locale Code="All" />
+    </LocaleList>
+    <RequiredRuntimeCapabilities>
+      <RequiredRuntimeCapability>Name</RequiredRuntimeCapability>
+    </RequiredRuntimeCapabilities>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="com.OrganizeFilesInProject.panel">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./index.html</MainPath>
+          <CEFCommandLine>
+            <Parameter>--disable-features=SameSiteByDefaultCookies,CookiesWithoutSameSiteMustBeSecure,NetworkService</Parameter>
+            <Parameter>--disable-site-isolation-trials</Parameter>
+            <Parameter>--enable-nodejs</Parameter>
+            <Parameter>--mixed-context</Parameter>
+          </CEFCommandLine>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>OrganizeFilesInProject</Menu>
+          <Geometry>
+            <Size>
+              <Height>800</Height>
+              <Width>400</Width>
+            </Size>
+            <MaxSize>
+              <Height>1000</Height>
+              <Width>1000</Width>
+            </MaxSize>
+            <MinSize>
+              <Height>300</Height>
+              <Width>300</Width>
+            </MinSize>
+          </Geometry>
+          <Icons />
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>

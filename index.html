@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Organize Files</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            padding: 10px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            color: #eee;
+            background-color: #222;
+        }
+        .container {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 30px auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 5px 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            background-color: #444;
+            color: #eee;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .description {
+            margin-top: -7px;
+            font-size: 10px;
+            text-align: left;
+        }
+        .description p {
+            margin-bottom: 10px;
+        }
+        .description ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .description li {
+            margin-bottom: 15px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="./CSInterface.js"></script>
+    <script type="text/javascript" src="./OrganizeFilesInProject.jsx"></script>
+</head>
+<body>
+    <div class="container">
+        <label for="custom-name-1">Folder 1:</label>
+        <input type="text" id="custom-name-1" name="custom-name-1" value="screenshots">
+        <div class="description">
+            <ul>
+                <li>Tous les fichiers d'image (jpg, png, etc.) vont dans ce dossier</li>
+            </ul>
+        </div>
+        <label for="custom-name-2">Folder 2:</label>
+        <input type="text" id="custom-name-2" name="custom-name-2" value="music & sound effect">
+        <div class="description">
+            <ul>
+                <li>Tous les fichiers audio (mp3, wav, etc.) vont dans ce dossier.</li>
+            </ul>
+        </div>
+        <label for="custom-name-3">Folder 3:</label>
+        <input type="text" id="custom-name-3" name="custom-name-3" value="sequence">
+        <div class="description">
+            <ul>
+                <li>Tous les fichiers de projet (aep, prproj, etc.) vont dans ce dossier.</li>
+            </ul>
+        </div>
+        <label for="custom-name-4">Folder 4:</label>
+        <input type="text" id="custom-name-4" name="custom-name-4" value="video">
+        <div class="description">
+        <ul>
+            <li>Tous les fichiers vidéo (mp4, avi, etc.) vont dans ce dossier.</li>
+        </ul>
+        </div>
+
+        <label for="custom-name-5">Folder 5:</label>
+        <input type="text" id="custom-name-5" name="custom-name-5" value="other">
+        <div class="description">
+        <ul>
+            <li>Tous les fichiers qui ne correspondent pas aux autres dossiers vont dans ce dossier</li>
+        </ul>
+        </div>
+
+<button id="organize-btn">Organize Files</button>
+
+<script type="text/javascript">
+  function organizeFilesInProject(customNames) {
+    var csInterface = new CSInterface();
+    var extensionPath = csInterface.getSystemPath(SystemPath.EXTENSION);
+    var scriptPath = extensionPath + '/OrganizeFilesInProject.jsx';
+
+    csInterface.evalScript('$.evalFile("' + scriptPath + '")', function(result) {
+      csInterface.evalScript('organizeFilesInProject(\'' + JSON.stringify(customNames) + '\')', function (result) {
+        console.log(result);
+      });
+    });
+  }
+
+  document.getElementById('organize-btn').addEventListener('click', function() {
+    var customNames = [
+      document.getElementById('custom-name-1').value,
+      document.getElementById('custom-name-2').value,
+      document.getElementById('custom-name-3').value,
+      document.getElementById('custom-name-4').value,
+      document.getElementById('custom-name-5').value,
+    ];
+    organizeFilesInProject(customNames);
+  });
+</script>
