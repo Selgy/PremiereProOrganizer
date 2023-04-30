@@ -95,42 +95,56 @@
         <label for="custom-name-4">Folder 4:</label>
         <input type="text" id="custom-name-4" name="custom-name-4" value="video">
         <div class="description">
-        <ul>
-            <li>Tous les fichiers vidéo (mp4, avi, etc.) vont dans ce dossier.</li>
-        </ul>
+            <ul>
+                <li>Tous les fichiers vidéo (mp4, avi, etc.) vont dans ce dossier.</li>
+            </ul>
         </div>
 
         <label for="custom-name-5">Folder 5:</label>
         <input type="text" id="custom-name-5" name="custom-name-5" value="other">
         <div class="description">
-        <ul>
-            <li>Tous les fichiers qui ne correspondent pas aux autres dossiers vont dans ce dossier</li>
-        </ul>
+            <ul>
+                <li>Tous les fichiers qui ne correspondent pas aux autres dossiers vont dans ce dossier</li>
+            </ul>
         </div>
 
-<button id="organize-btn">Organize Files</button>
+        <label for="ignored-files">Ignored Files/Folders:</label>
+        <input type="text" id="ignored-files" name="ignored-files">
+        <div class="description">
+            <ul>
+                <li>Noms de fichiers ou de dossiers à ignorer, séparés par un ";".</li>
+            </ul>
+        </div>
 
-<script type="text/javascript">
-  function organizeFilesInProject(customNames) {
-    var csInterface = new CSInterface();
-    var extensionPath = csInterface.getSystemPath(SystemPath.EXTENSION);
-    var scriptPath = extensionPath + '/OrganizeFilesInProject.jsx';
+        <button id="organize-btn">Organize Files</button>
 
-    csInterface.evalScript('$.evalFile("' + scriptPath + '")', function(result) {
-      csInterface.evalScript('organizeFilesInProject(\'' + JSON.stringify(customNames) + '\')', function (result) {
-        console.log(result);
-      });
-    });
-  }
+        <script type="text/javascript">
+            function organizeFilesInProject(customNames, ignoredFiles) {
+                var csInterface = new CSInterface();
+                var extensionPath = csInterface.getSystemPath(SystemPath.EXTENSION);
+                var scriptPath = extensionPath + '/OrganizeFilesInProject.jsx';
 
-  document.getElementById('organize-btn').addEventListener('click', function() {
-    var customNames = [
-      document.getElementById('custom-name-1').value,
-      document.getElementById('custom-name-2').value,
-      document.getElementById('custom-name-3').value,
-      document.getElementById('custom-name-4').value,
-      document.getElementById('custom-name-5').value,
-    ];
-    organizeFilesInProject(customNames);
-  });
-</script>
+                csInterface.evalScript('$.evalFile("' + scriptPath + '")', function(result) {
+                    csInterface.evalScript('organizeFilesInProject(\'' + JSON.stringify(customNames) + '\', \'' + ignoredFiles + '\')', function (result) {
+                        console.log(result);
+                    });
+                });
+            }
+
+            document.getElementById('organize-btn').addEventListener('click', function() {
+                var customNames = [
+                    document.getElementById('custom-name-1').value,
+                    document.getElementById('custom-name-2').value,
+                    document.getElementById('custom-name-3').value,
+                    document.getElementById('custom-name-4').value,
+                    document.getElementById('custom-name-5').value,
+                ];
+                var ignoredFiles = document.getElementById('ignored-files').value;
+                organizeFilesInProject(customNames, ignoredFiles);
+            });
+        </script>
+    </div>
+</body>
+</html>
+
+               
