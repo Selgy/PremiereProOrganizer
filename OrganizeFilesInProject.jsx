@@ -3,11 +3,11 @@
     var project = app.project;
     var root = project.rootItem;
   
-    var screenshotBin = findOrCreateBin("1 - " + customNames[0]);
-    var musicAndSoundBin = findOrCreateBin("2 - " + customNames[1]);
-    var sequenceBin = findOrCreateBin("3 - " + customNames[2]);
-    var videoBin = findOrCreateBin("4 - " + customNames[3]);
-    var otherBin = findOrCreateBin("5 - " + customNames[4]);
+    var screenshotBin = findOrCreateBin(customNames[0]);
+    var musicAndSoundBin = findOrCreateBin(customNames[1]);
+    var sequenceBin = findOrCreateBin(customNames[2]);
+    var videoBin = findOrCreateBin(customNames[3]);
+    var otherBin = findOrCreateBin(customNames[4]);
   
     var itemsToMove = [];
     var ignoredNamesArr = ignoredNames.split(";");
@@ -30,11 +30,11 @@
         continue;
       }
   
-      if (item.name.startsWith("1 - " + customNames[0]) ||
-          item.name.startsWith("2 - " + customNames[1]) ||
-          item.name.startsWith("3 - " + customNames[2]) ||
-          item.name.startsWith("4 - " + customNames[3]) ||
-          item.name.startsWith("5 - " + customNames[4])) {
+      if (item.name.startsWith(customNames[0]) ||
+          item.name.startsWith(customNames[1]) ||
+          item.name.startsWith(customNames[2]) ||
+          item.name.startsWith(customNames[3]) ||
+          item.name.startsWith(customNames[4])) {
         continue;
       }
   
