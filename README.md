@@ -1,6 +1,6 @@
 # Premiere Pro Organizer
 
-Premiere Pro Organizer is a script for Adobe Premiere Pro that helps you organize your project files by moving them into designated folders. This can help keep your project files neat and tidy, and make it easier to find what you need.
+Premiere Pro Organizer is a script for Adobe Premiere Pro that helps you organize your project files by moving them into designated folders. This can help keep your project files neat and tidy.
 
 ## Features
 
@@ -12,14 +12,17 @@ Premiere Pro Organizer is a script for Adobe Premiere Pro that helps you organiz
 
 To use Premiere Pro Organizer, you will need to install it as an extension in Adobe Premiere Pro. To do this, follow these steps:
 
-1. Download the `PremiereProOrganizer.zxp` file from the [latest release](https://github.com/Selgy/PremiereProOrganizer/releases/latest).
-2. Install the [CEP Extensions Manager](https://www.adobeexchange.com/creativecloud.details.101985.html) if you haven't already.
-3. Open the CEP Extensions Manager and drag the `PremiereProOrganizer.zxp` file into it.
-4. Open Adobe Premiere Pro and go to the `Window > Extensions` menu. You should see Premiere Pro Organizer listed there.
+1. Download the `PremiereProOrganizer.zip` file from the [latest release](https://github.com/Selgy/PremiereProOrganizer/releases/latest).
+2. Un-zip it in your Common Files (C:\Program Files (x86)\Common Files\Adobe\CEP).
+3. Open Adobe Premiere Pro and go to the `Window > Extensions` menu. You should see "PremiereProOrganizer" listed there.
 
 ## Usage
 
 1. Open the Premiere Pro project you want to organize.
 2. In Premiere Pro, go to `Window > Extensions > Premiere Pro Organizer`.
 3. Set the names of the folders you want to use to organize your files.
-4. Click the `Organize Files` button and the script will move your files into the designated folders.
+4. Click the `Organize Files` button and the script will move all files in the root into the designated folders.
+
+## Other information
+1. I'm not a dev, just a video editor that uses ChatGpt and google, and created this because I'm lazy to organize my folders.
+2. I did it for my workflow and it may not be for you.
