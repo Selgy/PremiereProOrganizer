@@ -7,6 +7,7 @@ Premiere Pro Organizer is a script for Adobe Premiere Pro that helps you organiz
 - Customizable folder names: You can set the names of the folders that the script will use to organize your files.
 - Easy to use: Just run the script and it will organize your files automatically.
 - Works with various file types: The script can organize a variety of file types, including footage, audio, images, projects, and video files.
+- Ability to ignore files and folders: You can add files and folders to be ignored during the organization process by separating them with a semicolon ";".
 
 ## Installation
 
