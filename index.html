@@ -123,7 +123,6 @@
                 var csInterface = new CSInterface();
                 var extensionPath = csInterface.getSystemPath(SystemPath.EXTENSION);
                 var scriptPath = extensionPath + '/OrganizeFilesInProject.jsx';
-
                 csInterface.evalScript('$.evalFile("' + scriptPath + '")', function(result) {
                     csInterface.evalScript('organizeFilesInProject(\'' + JSON.stringify(customNames) + '\', \'' + ignoredFiles + '\')', function (result) {
                         console.log(result);

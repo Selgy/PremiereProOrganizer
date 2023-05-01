@@ -1,4 +1,9 @@
-﻿function organizeFilesInProject(customNamesJSON, ignoredNames) {
+﻿String.prototype.startsWith = function (searchStr) {
+    return new RegExp("^" + searchStr).test(this);
+}
+function organizeFilesInProject(customNamesJSON, ignoredNames) {
+
+    $.level = 1;
     var customNames = JSON.parse(customNamesJSON);
     var project = app.project;
     var root = project.rootItem;
@@ -11,7 +16,7 @@
   
     var itemsToMove = [];
     var ignoredNamesArr = ignoredNames.split(";");
-  
+$.writeln("2")
     for (var i = 0; i < root.children.numItems; i++) {
       var item = root.children[i];
       var parts = item.name.split(".");
@@ -29,15 +34,16 @@
       if (ignored) {
         continue;
       }
-  
       if (item.name.startsWith(customNames[0]) ||
           item.name.startsWith(customNames[1]) ||
           item.name.startsWith(customNames[2]) ||
           item.name.startsWith(customNames[3]) ||
           item.name.startsWith(customNames[4])) {
+              $.writeln("Extension: " + extension);
+              $.writeln("Item type: " + item.type);
+
         continue;
       }
-  
       if (item.type == 1) {
         if (item.isSequence() || extension == "aep") {
           itemsToMove.push({item: item, bin: sequenceBin});
@@ -56,7 +62,7 @@
         itemsToMove.push({item: item, bin: otherBin});
       }
     }
-  
+
     for (var j = 0; j < itemsToMove.length; j++) {
       itemsToMove[j].item.moveBin(itemsToMove[j].bin);
     }
