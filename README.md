@@ -33,3 +33,7 @@ To use Premiere Pro Organizer, you will need to install it as an extension in Ad
 ## Other information
 1. I'm not a dev, just a video editor that uses ChatGpt and google, and created this because I'm lazy to organize my folders.
 2. I did it for my workflow and it may not be for yours.
+
+## Credits
+Thanks you for the help
+[BeezBeez](https://github.com/BeezBeez)
