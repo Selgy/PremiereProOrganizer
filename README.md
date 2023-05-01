@@ -15,8 +15,8 @@ To use Premiere Pro Organizer, you will need to install it as an extension in Ad
 
 1. Download the `PremiereProOrganizer.zip` file from the [latest release](https://github.com/Selgy/PremiereProOrganizer/releases/latest).
 2. Un-zip it in your Common Files.
-   - For Windows: `C:\Program Files (x86)\Common Files\Adobe\CEP\Extensions`
-   - For Mac: `/Library/Application Support/Adobe/CEP/extensions`
+   - For Windows: `%appdata%\Adobe\CEP\extensions`
+   - For Mac: `~/Library/Application Support/Adobe/CEP/extensions`
 3. Open Adobe Premiere Pro and go to the `Window > Extensions` menu. You should see "PremiereProOrganizer" listed there.
 
 ## Usage
@@ -33,3 +33,7 @@ To use Premiere Pro Organizer, you will need to install it as an extension in Ad
 ## Other information
 1. I'm not a dev, just a video editor that uses ChatGpt and google, and created this because I'm lazy to organize my folders.
 2. I did it for my workflow and it may not be for yours.
+
+## Credits
+Thanks you for the help
+[BeezBeez](https://github.com/BeezBeez)
