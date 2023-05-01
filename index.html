@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Organize Files</title>
     <meta charset="utf-8">
@@ -11,6 +12,7 @@
             color: #eee;
             background-color: #222;
         }
+
         .container {
             background-color: #333;
             padding: 20px;
@@ -19,10 +21,12 @@
             max-width: 400px;
             margin: 30px auto;
         }
+
         label {
             display: block;
             margin-bottom: 5px;
         }
+
         input {
             width: 100%;
             padding: 5px 10px;
@@ -34,6 +38,7 @@
             background-color: #444;
             color: #eee;
         }
+
         button {
             background-color: #4CAF50;
             color: white;
@@ -45,22 +50,27 @@
             border-radius: 4px;
             transition: background-color 0.2s;
         }
+
         button:hover {
             background-color: #45a049;
         }
+
         .description {
             margin-top: -7px;
             font-size: 10px;
             text-align: left;
         }
+
         .description p {
             margin-bottom: 10px;
         }
+
         .description ul {
             list-style: none;
             margin: 0;
             padding: 0;
         }
+
         .description li {
             margin-bottom: 15px;
         }
@@ -69,6 +79,7 @@
     <script type="text/javascript" src="./CSInterface.js"></script>
     <script type="text/javascript" src="./OrganizeFilesInProject.jsx"></script>
 </head>
+
 <body>
     <div class="container">
         <label for="custom-name-1">Folder 1:</label>
@@ -123,14 +134,28 @@
                 var csInterface = new CSInterface();
                 var extensionPath = csInterface.getSystemPath(SystemPath.EXTENSION);
                 var scriptPath = extensionPath + '/OrganizeFilesInProject.jsx';
-                csInterface.evalScript('$.evalFile("' + scriptPath + '")', function(result) {
+                csInterface.evalScript('$.evalFile("' + scriptPath + '")', function (result) {
                     csInterface.evalScript('organizeFilesInProject(\'' + JSON.stringify(customNames) + '\', \'' + ignoredFiles + '\')', function (result) {
-                        console.log(result);
                     });
                 });
             }
+            function loadCustomNames() {
+                for (var i = 1; i <= 5; i++) {
+                    var customName = localStorage.getItem('custom-name-' + i);
+                    if (customName) {
+                        document.getElementById('custom-name-' + i).value = customName;
+                    }
+                }
+            }
 
-            document.getElementById('organize-btn').addEventListener('click', function() {
+            function saveCustomNames(customNames) {
+                for (var i = 0; i < customNames.length; i++) {
+                    localStorage.setItem('custom-name-' + (i + 1), customNames[i]);
+                }
+            }
+
+
+            document.getElementById('organize-btn').addEventListener('click', function () {
                 var customNames = [
                     document.getElementById('custom-name-1').value,
                     document.getElementById('custom-name-2').value,
@@ -138,10 +163,19 @@
                     document.getElementById('custom-name-4').value,
                     document.getElementById('custom-name-5').value,
                 ];
+                saveCustomNames(customNames);
+
                 var ignoredFiles = document.getElementById('ignored-files').value;
                 organizeFilesInProject(customNames, ignoredFiles);
             });
+
+            document.addEventListener('DOMContentLoaded', function () {
+                loadCustomNames();
+            });
+
+
         </script>
     </div>
 </body>
+
 </html>
