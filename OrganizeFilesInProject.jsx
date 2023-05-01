@@ -45,11 +45,11 @@ $.writeln("2")
         continue;
       }
       if (item.type == 1) {
-        if (item.isSequence() || extension == "aep") {
+        if (item.isSequence() || extension == "aep"|| extension == "aegraphic") {
           itemsToMove.push({item: item, bin: sequenceBin});
         } else if (extension == "mov" || extension == "mp4"|| extension == "mxf" ) {
           itemsToMove.push({item: item, bin: videoBin});
-        } else if (extension == "mp3" || extension == "wav" ) {
+        } else if (extension == "mp3" || extension == "wav" || extension == "m4a") {
           itemsToMove.push({item: item, bin: musicAndSoundBin});
         } else if (extension == "jpg" || extension == "jpeg" || extension == "png" || extension == "psd" || extension == "webp") {
           itemsToMove.push({item: item, bin: screenshotBin});
