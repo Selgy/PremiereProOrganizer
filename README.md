@@ -27,7 +27,6 @@ To use Premiere Pro Organizer, you will need to install it as an extension in Ad
 4. Click the `Organize Files` button and the script will move all files in the root into the designated folders.
 
 ## Upcoming features
-- Save and Load botton, to keep your files names in the extension even if you restart Premiere pro
 - Add and delete folders from the already made list
 
 ## Other information
