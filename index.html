@@ -140,34 +140,46 @@
                 });
             }
             function loadCustomNames() {
-                for (var i = 1; i <= 5; i++) {
-                    var customName = localStorage.getItem('custom-name-' + i);
-                    if (customName) {
-                        document.getElementById('custom-name-' + i).value = customName;
-                    }
-                }
-            }
+    for (var i = 1; i <= 5; i++) {
+        var customName = localStorage.getItem('custom-name-' + i);
+        if (customName) {
+            document.getElementById('custom-name-' + i).value = customName;
+        }
+    }
 
-            function saveCustomNames(customNames) {
-                for (var i = 0; i < customNames.length; i++) {
-                    localStorage.setItem('custom-name-' + (i + 1), customNames[i]);
-                }
-            }
+    // Load ignored files
+    var ignoredFiles = localStorage.getItem('ignored-files');
+    if (ignoredFiles) {
+        document.getElementById('ignored-files').value = ignoredFiles;
+    }
+}
+
+function saveCustomNames(customNames, ignoredFiles) {
+    for (var i = 0; i < customNames.length; i++) {
+        localStorage.setItem('custom-name-' + (i + 1), customNames[i]);
+    }
+
+    // Save ignored files
+    localStorage.setItem('ignored-files', ignoredFiles);
+}
+
 
 
             document.getElementById('organize-btn').addEventListener('click', function () {
-                var customNames = [
-                    document.getElementById('custom-name-1').value,
-                    document.getElementById('custom-name-2').value,
-                    document.getElementById('custom-name-3').value,
-                    document.getElementById('custom-name-4').value,
-                    document.getElementById('custom-name-5').value,
-                ];
-                saveCustomNames(customNames);
+    var customNames = [
+        document.getElementById('custom-name-1').value,
+        document.getElementById('custom-name-2').value,
+        document.getElementById('custom-name-3').value,
+        document.getElementById('custom-name-4').value,
+        document.getElementById('custom-name-5').value,
+    ];
 
-                var ignoredFiles = document.getElementById('ignored-files').value;
-                organizeFilesInProject(customNames, ignoredFiles);
-            });
+    var ignoredFiles = document.getElementById('ignored-files').value;
+    saveCustomNames(customNames, ignoredFiles); // Update this line to include ignoredFiles
+
+    organizeFilesInProject(customNames, ignoredFiles);
+});
+
 
             document.addEventListener('DOMContentLoaded', function () {
                 loadCustomNames();

@@ -86,5 +86,5 @@ $.writeln("2")
     return null;
     }
     
-    alert("Le script a bien été exécuté et les fichiers ont été organisés.");
+    alert("the files have been organized.","PremiereProOrganizer");
     }
