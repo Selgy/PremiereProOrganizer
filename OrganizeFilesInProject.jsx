@@ -1,4 +1,5 @@
-﻿String.prototype.startsWith = function (searchStr) {
+﻿
+String.prototype.startsWith = function (searchStr) {
     return new RegExp("^" + searchStr).test(this);
 }
 function organizeFilesInProject(customNamesJSON, ignoredNames) {
@@ -16,7 +17,6 @@ function organizeFilesInProject(customNamesJSON, ignoredNames) {
   
     var itemsToMove = [];
     var ignoredNamesArr = ignoredNames.split(";");
-$.writeln("2")
     for (var i = 0; i < root.children.numItems; i++) {
       var item = root.children[i];
       var parts = item.name.split(".");
@@ -39,8 +39,6 @@ $.writeln("2")
           item.name.startsWith(customNames[2]) ||
           item.name.startsWith(customNames[3]) ||
           item.name.startsWith(customNames[4])) {
-              $.writeln("Extension: " + extension);
-              $.writeln("Item type: " + item.type);
 
         continue;
       }
