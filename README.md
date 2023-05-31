@@ -28,7 +28,6 @@ To use Premiere Pro Organizer, you will need to install it as an extension in Ad
 
 ## Upcoming features
 - Add and delete folders from the already made list
-- Add save the to Ignored Files/Folder
 
 ## Other information
 1. I'm not a dev, just a video editor that uses ChatGpt and google, and created this because I'm lazy to organize my folders.
