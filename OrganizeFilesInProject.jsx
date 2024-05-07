@@ -47,7 +47,7 @@ function organizeFilesInProject(customNamesJSON, ignoredNames) {
           itemsToMove.push({item: item, bin: sequenceBin});
         } else if (extension == "mov" || extension == "mp4"|| extension == "mxf" ) {
           itemsToMove.push({item: item, bin: videoBin});
-        } else if (extension == "mp3" || extension == "wav" || extension == "m4a") {
+        } else if (extension == "mp3" || extension == "wav" || extension == "m4a" || extension == "aif"  ) {
           itemsToMove.push({item: item, bin: musicAndSoundBin});
         } else if (extension == "jpg" || extension == "jpeg" || extension == "png" || extension == "psd" || extension == "webp") {
           itemsToMove.push({item: item, bin: screenshotBin});
